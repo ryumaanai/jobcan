@@ -13,7 +13,7 @@ driver.find_element(:id, 'adit-button-work-start').click
 nowTime = DateTime.now
 nowHour = nowTime.hour
 nowMinute = nowTime.minute
-unless nowHour == 12 && nowMinute >= 45 or nowHour == 9 && nowMinute >= 45
+unless nowHour == 12 && nowMinute > 45 or nowHour == 9 && nowMinute > 45
   driver.navigate().to('https://ssl.jobcan.jp/employee/early-over-work/new')
   selectHour = Selenium::WebDriver::Support::Select.new(driver.find_element(:id, 'start_h'))
   selectHour.select_by(:value, (nowHour - 5).to_s)
